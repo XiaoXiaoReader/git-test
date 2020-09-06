@@ -79,7 +79,9 @@ public class CacheServiceImpl implements CacheService {
     }
 
     public Object test01(String key) throws ExecutionException {
-        return loadingCache.get(key);
+        System.out.println("11111");
+        loadingCache.get(key);
+        return "1111";
     }
 
 
