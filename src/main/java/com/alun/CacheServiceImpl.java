@@ -78,4 +78,9 @@ public class CacheServiceImpl implements CacheService {
         return loadingCache.get(key);
     }
 
+    public Object test01(String key) throws ExecutionException {
+        return loadingCache.get(key);
+    }
+
+
 }
