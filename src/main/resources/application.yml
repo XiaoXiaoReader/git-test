@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  rabbitmq:
+    host: localhost #127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout: 15000 #连接超时
+    #return（回调） 的时候代表消息不可达，设置服务器不自动删除该消息，而是返回到生产端，让我们进行一些后续的处理
+    publisher-confirms: true
+    publisher-returns: true
+    template.mandatory: true
+    #消费监听配置
+    listener:
+      simple:
+        acknowledge-mode: manual #手工签收
+        concurrency: 2 #消费者监听并发数
+        max-concurrency: 10 #最大并发数
+        #prefetch: 2  #某消费者一次监听可拉取的消息数，如果有事务的话，必须大于等于transaction数量.
